@@ -31,6 +31,19 @@ feature 'Manage Crud' do
     expect(page).to have_no_content 'France'
     expect(page).to have_content 'Portuguese'
     expect(page).to have_content 'Brazil'
+  end
 
+  scenario 'User can delete languages from a list' do
+    visit '/'
+    click_on 'Add a language'
+    fill_in 'Name of language', with: 'French'
+    fill_in 'Country spoken', with: 'France'
+    click_on 'Create language'
+    click_on 'French'
+    expect(page).to have_content 'French'
+    expect(page).to have_content 'France'
+    click_on 'Delete language'
+    expect(page).to have_no_content 'French'
+    expect(page).to have_no_content 'France'
   end
 end
