@@ -8,14 +8,6 @@
     <%= f.text_field :country_spoken %>
   </p>
   <p>
-    <%= f.submit 'Create language' %>
+    <%= f.submit 'Update language' %>
   </p>
-<% end %>
-
-<% @languages.each do |language| %>
-<ul>
-  <li>
-    <%= link_to "#{language.name_of_language}", language_path(language) %>, <%= language.country_spoken %>
-  </li>
-</ul>
 <% end %>
